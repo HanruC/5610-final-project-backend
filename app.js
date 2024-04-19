@@ -23,8 +23,5 @@ app.use("/api/favorites", FavoritesRoutes);
 app.use("/api/cart", CartsRoutes);
 app.use("/api/comments", CommentsRoutes);
 
-app.use(function (req, res) {
-    res.sendFile(path.resolve(__dirname, './client/index.html'));
-})
 
 module.exports = app;
