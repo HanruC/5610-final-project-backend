@@ -16,6 +16,7 @@ const authenticateSeller = (req, res, next) => {
 
     try {
         const authenticatedUser = jwt.verify(token, environmentConfig.JWT_SECRET_KEY);
+    
         if (authenticatedUser.role !== 'seller') {
             return res.status(403).send("Access denied. User is not authorized as seller.");
         }

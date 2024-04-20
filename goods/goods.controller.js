@@ -123,7 +123,8 @@ class GoodsController {
       const { id } = req.params;
       const user = req.user;
       const goods = await goodsService.getProductDetails(id);
-      if (user.id !== goods.vendor.toString()) {
+    
+      if (user.id !== goods.vendor._id.toString()) {
         return res.status(403).send("Forbidden");
       }
       await goodsService.deleteProduct(id);
