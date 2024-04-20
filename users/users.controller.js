@@ -79,8 +79,7 @@ class UsersController {
     signIn = async (req, res) => {
         try {
             const { email, password } = req.body;
-            const user = await UsersService.findUser(email);
-
+            let user = await UsersService.findUser(email);
             // Validate user existence
             if (!user) {
                 return res.status(400).send("Invalid Credentials");
